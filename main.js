@@ -1,0 +1,27 @@
+$(document).ready(() => {
+    $(".menu").on('mouseenter',()=>{
+        $(".nav-menu").show()
+    })
+    $(".nav-menu").on('mouseleave',()=>{
+      $(".nav-menu").hide()
+    })
+    
+    $(".btn").on('mouseenter',target=>{
+      $(target.currentTarget).addClass('btn-hover')
+    }).on('mouseleave',(target)=>{
+     $(target.currentTarget).removeClass('btn-hover') 
+    })
+    $(".postText").focus()
+    
+    $(".postText").on("keyup",(event)=>{
+      const post = $(event.currentTarget).val()
+      const remaining = 140-post.length
+      if(remaining <=0){
+        $(".wordcount").addClass('red')
+      }else{
+        $(".wordcount").removeClass('red')
+      }
+      $('.characters').html(remaining);
+    })
+    }); 
+    
